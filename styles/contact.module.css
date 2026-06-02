@@ -1,0 +1,239 @@
+.page {
+  padding-top: 76px;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 88px 0 64px;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.headerLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.headerLabel::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--green-border);
+}
+
+.title {
+  font-size: 4.2rem;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+}
+
+.subtitle {
+  font-size: 1.04rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+.content {
+  padding: 58px 0 92px;
+}
+
+.linkList {
+  margin-bottom: 68px;
+  border-top: 1px solid var(--border);
+}
+
+.linkItem {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  position: relative;
+}
+
+.linkItem::before {
+  content: '';
+  position: absolute;
+  inset: 8px -18px;
+  border-radius: 8px;
+  background: var(--surface);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-out);
+}
+
+.linkItem:hover::before {
+  opacity: 0.62;
+}
+
+.linkPlatform,
+.linkName,
+.linkIcon {
+  position: relative;
+  z-index: 1;
+}
+
+.linkPlatform {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.linkName {
+  font-size: 0.98rem;
+  color: var(--text-2);
+  transition: color 0.2s var(--ease-out);
+  overflow-wrap: anywhere;
+}
+
+.linkItem:hover .linkName {
+  color: var(--text);
+}
+
+.linkIcon {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--text-3);
+  transition: transform 0.25s var(--ease-out), color 0.25s var(--ease-out), background 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  flex-shrink: 0;
+}
+
+.linkItem:hover .linkIcon {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--bg);
+  transform: translate(3px, -3px);
+}
+
+.availSection {
+  max-width: 780px;
+}
+
+.availLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.availLabel::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--green-border);
+}
+
+.availGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.availCard {
+  background: rgba(23, 27, 20, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.availCard:hover {
+  border-color: var(--border-2);
+  background: var(--surface);
+}
+
+.availCardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.availCardValue {
+  font-size: 0.98rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.availCardValue.open {
+  color: var(--green-2);
+}
+
+.note {
+  font-size: 0.96rem;
+  color: var(--text-2);
+  line-height: 1.74;
+  max-width: 620px;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding-top: 68px;
+  }
+
+  .header {
+    padding: 72px 0 52px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .content {
+    padding: 44px 0 72px;
+  }
+
+  .linkItem {
+    grid-template-columns: 94px 1fr;
+    gap: 18px;
+  }
+
+  .linkIcon {
+    display: none;
+  }
+
+  .availGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .title {
+    font-size: 2.6rem;
+  }
+
+  .linkItem {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
